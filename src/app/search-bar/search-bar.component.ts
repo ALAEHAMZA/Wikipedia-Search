@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent {
+  term:any =""
 
+  onInput(event:Event) {
+    this.term = (event.target as HTMLInputElement).value
+  }
+
+  onFormSubmit(event: any) {
+    event.preventDefault();
+    console.log(this.term)
+  }
 }
