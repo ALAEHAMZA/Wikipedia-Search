@@ -7,7 +7,16 @@ import { HttpClient } from '@angular/common/http';
 export class WikipediaService {
   constructor(private http: HttpClient) {}
 
-  search(terms:string) {
-    return this.http
+  public search(term:string) {
+    return this.http.get('https://en.wikipedia.org/w/api.php?' , {
+      params: {
+        action: "query",
+        format: "json" ,
+        list: "search" ,
+        utf8: "1" ,
+        srsearch: term,
+        origin: "*"
+      }
+    });
   }
 }
